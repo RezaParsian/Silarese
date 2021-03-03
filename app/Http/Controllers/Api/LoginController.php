@@ -34,9 +34,7 @@ class LoginController extends Controller
                 "token"=>$result['token'],
             ];
         }else{
-            return [
-                "message"=>"user or password is wrong",
-            ];
+            abort(403,"Email or password is wrong");
         }
     }
 }
