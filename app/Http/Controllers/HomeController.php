@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $q="%".Request()->search."%";
+        $users=User::where("name","like",$q)->orwhere("email","like",$q)->orderby("id","desc")->paginate();
+        return view('dashboard.dashboard',compact("users"));
     }
 }
