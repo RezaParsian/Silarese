@@ -4,7 +4,6 @@
 <head>
     <title>سیلارس - @yield('ex-title')</title>
 
-    {{-- meta tag --}}
     {{-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="اکاذیب">
@@ -35,7 +34,7 @@
     <div id="app">
         <div class="loading"
             style="left: 0;right: 0;top: 0;bottom: 0;position: absolute;background: white;z-index: 9999;text-align: center;color: #333;">
-            <div style="position: relative;top: 50vh; text-decoration: underline black;">Akazib</div>
+            <div style="position: relative;top: 50vh; text-decoration: underline black;">سیلارس</div>
         </div>
         <nav class="navbar navbar-expand-sm justify-content-center">
             <a href="#">

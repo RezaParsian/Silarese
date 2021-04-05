@@ -11,7 +11,7 @@
 @section('content')
     <div class="loading"
         style="left: 0;right: 0;top: 0;bottom: 0;position: absolute;background: white;z-index: 9999;text-align: center;color: #333;">
-        <div style="position: relative;top: 50vh; text-decoration: underline black;">Akazib</div>
+        <div style="position: relative;top: 50vh; text-decoration: underline black;">سیلارس</div>
     </div>
     <div class="container">
 
