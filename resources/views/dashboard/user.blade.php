@@ -28,19 +28,6 @@
             </div>
         </div>
     </div>
-
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <form action="{{route("home")}}">
-                    <div class="row mx-5">
-                        <input type="text" name="search" class="form-control col-10"
-                               placeholder="جستجو بر اساس نام و ایمیل می‌باشد.">
-                        <input type="submit" value="جستجو" class="btn btn-primary mx-3">
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="card">
             <div class="card-body">
                 <table class="table table-bordered text-center table-striped table-hover table-responsive-md">
