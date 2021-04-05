@@ -31,7 +31,8 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning text-dark">نمایش</a>
+                                    <a href="{{route("show.user",$user->id)}}" class="btn btn-warning
+                                    text-dark">نمایش</a>
                                 </td>
                             </tr>
                         @endforeach

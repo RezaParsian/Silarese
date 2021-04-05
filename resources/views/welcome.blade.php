@@ -422,35 +422,7 @@
         </section>
     </div>
 
-    <script src='//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
-    <script src='//unpkg.com/vue-chartjs@2.6.0/dist/vue-chartjs.full.min.js'></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js'></script>
-    <script src='//unpkg.com/hchs-vue-charts@1.2.8'></script>
-    <script>
-        'use strict';
 
-        Vue.use(VueCharts);
-        var app = new Vue({
-            el: '#app',
-            props:['labels','dataset'],
-            data: function data() {
-                return {
-                    dataentry: null,
-                    datalabel: null,
-                };
-            },
-
-            methods: {
-                addData: function addData() {
-                    this.props.dataset.push(this.dataentry);
-                    this.props.labels.push(this.datalabel);
-                    this.datalabel = '';
-                    this.dataentry = '';
-                }
-            }
-        });
-
-    </script>
 </body>
 
 </html>

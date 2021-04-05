@@ -71,22 +71,3 @@
     </div>
 @endsection
 
-
-@section('ex-js')
-    <script src="./logo/data.js"></script>
-    <script>
-        var animationData = animationData;
-        var params = {
-            container: document.getElementById('lottie'),
-            renderer: 'svg',
-            autoplay: true,
-            loop: true,
-            animationData: animationData
-        };
-
-        var anim;
-
-        anim = lottie.loadAnimation(params);
-
-    </script>
-@endsection

@@ -130,5 +130,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="vue" level="application" />
+    <orderEntry type="library" name="vue-chartjs.full" level="application" />
+    <orderEntry type="library" name="Chart" level="application" />
   </component>
 </module>

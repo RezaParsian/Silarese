@@ -28,4 +28,10 @@ class HomeController extends Controller
         $users=User::where("name","like",$q)->orwhere("email","like",$q)->orderby("id","desc")->paginate();
         return view('dashboard.dashboard',compact("users"));
     }
+
+    public function show(User $user)
+    {
+        $userInfo=$user->userInfo()->orderBy("id","desc")->paginate();
+        return view("dashboard.user",compact("userInfo"));
+    }
 }
