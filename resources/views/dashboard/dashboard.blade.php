@@ -34,11 +34,10 @@
                                 <td>{{ __($user->role) }}</td>
                                 <td class="d-flex justify-content-center">
                                     <a href="{{route("show.user",$user->id)}}" class="btn btn-warning text-dark">نمایش</a>
-                                    |
-                                    <form action="{{route("make.admin",$user->id)}}" method="POST">
+                                    <form action="{{route("make.admin",$user->id)}}" method="POST" class="{{$user->id==auth()->id() ? "d-none" : ""}}">
+                                        |
                                         @csrf
-                                        <input type="submit" class="btn btn-danger rounded mx-auto"
-                                               value="تغیر مقام">
+                                        <input type="submit" class="btn btn-danger rounded mx-auto" value="تغیر مقام">
                                     </form>
                                 </td>
                             </tr>
