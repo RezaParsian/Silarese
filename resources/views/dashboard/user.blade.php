@@ -28,6 +28,8 @@
             </div>
         </div>
     </div>
+
+    <div class="col">
         <div class="card">
             <div class="card-body">
                 <table class="table table-bordered text-center table-striped table-hover table-responsive-md">
@@ -44,11 +46,7 @@
                             <td class="ltr text-center">{{ $user->date }}</td>
                             <td>{{ $user->timezone }}</td>
                             <td>
-                                <button  data-toggle="modal" onclick="makePieChart('{{$user->upright}}','{{$user->slouched}}')"
-                                         data-target="#userinfomodal"
-                                         class="btn
-                                btn-warning
-                                text-dark">نمایش</button>
+                                <button onclick="makePieChart('{{$user->upright}}','{{$user->slouched}}')" class="btn btn-warning text-dark">نمایش</button>
                             </td>
                         </tr>
                     @endforeach
@@ -57,7 +55,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 @endsection
 
 @section("ex-js")
@@ -90,6 +88,7 @@
 
         function makePieChart(upright,slouched){
             app.dataset=[upright,slouched];
+            $("#userinfomodal").modal();
         }
     </script>
 @endsection
