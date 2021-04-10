@@ -22,6 +22,7 @@
                         <th>ردیف</th>
                         <th>اسم</th>
                         <th>ایمیل</th>
+                        <th>مقام</th>
                         <th>مدیریت</th>
                     </thead>
                     <tbody>
@@ -30,6 +31,7 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ __($user->role) }}</td>
                                 <td>
                                     <a href="{{route("show.user",$user->id)}}" class="btn btn-warning
                                     text-dark">نمایش</a>

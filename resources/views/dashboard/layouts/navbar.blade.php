@@ -15,7 +15,7 @@
                     </div>
                     <ul class="navbar-nav flex-column p-0 mt-2">
                         <li class="nav-item my-1 @yield('dashboard')">
-                            <a href="#" class="nav-link">
+                            <a href="{{route("home")}}" class="nav-link">
                                 <i class="fa fa-tachometer"></i>
                                 داشبورد
                             </a>
