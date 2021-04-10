@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\{Foundation\Application, Support\Renderable, View\Factory, View\View};
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -20,18 +21,33 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Renderable
      */
-    public function index()
+    public function index(): Renderable
     {
-        $q="%".Request()->search."%";
-        $users=User::where("name","like",$q)->orwhere("email","like",$q)->orderby("id","desc")->paginate();
-        return view('dashboard.dashboard',compact("users"));
+        $q = "%" . Request()->search . "%";
+        $users = User::where("name", "like", $q)->orwhere("email", "like", $q)->orderby("id", "desc")->paginate();
+        return view('dashboard.dashboard', compact("users"));
     }
 
+    /**
+     * @param User $user
+     * @return Application|Factory|View
+     */
     public function show(User $user)
     {
-        $userInfo=$user->userInfo()->orderBy("id","desc")->paginate();
-        return view("dashboard.user",compact("userInfo"));
+        $userInfo = $user->userInfo()->orderBy("id", "desc")->paginate();
+        return view("dashboard.user", compact("userInfo"));
+    }
+
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function change(User $user): RedirectResponse
+    {
+        $role = $user->role == "admin" ? "user" : "admin";
+        $user->update(["role" => $role]);
+        return back()->with("msg", "مقام کاربر با موفقیت تغیر یافت");
     }
 }

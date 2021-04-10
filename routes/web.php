@@ -24,4 +24,5 @@ Auth::routes();
 Route::middleware("role")->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get("showuser/{user}", [HomeController::class, "show"])->name("show.user");
+    Route::post("role/{user}",[HomeController::class,"change"])->name("make.admin");
 });
