@@ -21,5 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get("showuser/{user}", [HomeController::class,"show"])->name("show.user");
+Route::middleware("role")->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get("showuser/{user}", [HomeController::class, "show"])->name("show.user");
+});
