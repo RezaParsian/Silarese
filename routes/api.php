@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\LoginController;
-use App\Http\Controllers\Api\UserController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Api\{LoginController, ProfileController, UserController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [LoginController::class, "Register"]);
 Route::post('login', [LoginController::class, "Login"]);
-Route::get('userlog', [UserController::class,"GetUserLog"])->middleware("auth:api");
-Route::post('userlog', [UserController::class,"SaveUserLog"])->middleware("auth:api");
-Route::get('showlog/{email}', [UserController::class,"showUserLog"]);
+Route::get('showlog/{email}', [UserController::class, "showUserLog"]);
+
+Route::middleware("auth:api")->group(function (){
+    Route::get('userlog', [UserController::class, "GetUserLog"]);
+    Route::post('userlog', [UserController::class, "SaveUserLog"]);
+    Route::post("profile", [ProfileController::class, "store"]);
+    Route::post("mac", [ProfileController::class, "mac"]);
+});

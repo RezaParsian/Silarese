@@ -23,7 +23,7 @@ class CreateProfilesTable extends Migration
             $table->unsignedInteger("sitDaily")->default(0);
             $table->unsignedInteger("backPain")->default(0);
             $table->unsignedInteger("posture")->default(0);
-            $table->macAddress("mac");
+            $table->macAddress("mac")->nullable();
             $table->timestamps();
         });
     }
