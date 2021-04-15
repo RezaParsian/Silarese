@@ -9,6 +9,7 @@ use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -49,7 +50,17 @@ class UserController extends Controller
         $user = User::where("email", $email)->with(["userInfo"=>function($query){
             $query->orderby("id","desc")->limit(30);
         }])->get()->first();
-        
+
         return $user;
+    }
+
+    public function forgot(Request $request)
+    {
+        $request->validate([
+           "email"=>["required","email"]
+        ]);
+
+        Password::sendResetLink($request->all());
+        return response()->json(["msg" => 'Reset password link sent on your email id.']);
     }
 }

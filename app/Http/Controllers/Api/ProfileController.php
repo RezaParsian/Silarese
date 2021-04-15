@@ -33,10 +33,7 @@ class ProfileController extends Controller
         ]);
 
 
-        return [
-            "status" => "success",
-            "user" => array_merge(Auth::user()->toArray(), Auth::user()->profile->toArray()),
-        ];
+        return array_merge(Auth::user()->toArray(), Auth::user()->profile->toArray());
     }
 
     public function mac(Request $request): array

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [LoginController::class, "Register"]);
 Route::post('login', [LoginController::class, "Login"]);
 Route::get('showlog/{email}', [UserController::class, "showUserLog"]);
+Route::post("forgot",[UserController::class,"forgot"]);
 
 Route::middleware("auth:api")->group(function (){
     Route::get('userlog', [UserController::class, "GetUserLog"]);
